@@ -306,7 +306,6 @@ public class LinkedList {
          Node prev = null; // want to point it to last node
         while(slow != fast){
             prev = fast;
-             slow  = head;
              fast = fast.next;
              slow = slow.next;
         }
