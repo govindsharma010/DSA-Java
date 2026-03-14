@@ -285,6 +285,31 @@ public class CalcHeight {
     int dist2 = lcaDist(lca,n2);
     return dist1 + dist2;
    }
+   public static int KAncestor(Node root, int n, int k){
+    if(root == null){
+        return -1;
+    }
+    if(root.data == n){
+        return 0;
+
+    }
+    int leftDist = KAncestor(root.left, n, k);
+    int rightDist = KAncestor(root.right, n, k);
+
+    if(leftDist == -1 && rightDist == -1){
+        return -1;
+    }
+    
+    // calculating distance from the subtree where node exist or where it didnt return -1
+    int max = Math.max(leftDist, rightDist);
+    if(max+1 == k){
+        System.out.println(root.data);
+    }
+
+    //otherwise
+    return max +1; //(return increased distance)
+
+   }
 
     public static void main(String[] args) {
     //     Node root = new Node(1);
