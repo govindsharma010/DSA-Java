@@ -31,8 +31,9 @@ public class DP2TargetSum {
 }
 
     public static void main(String[] args) {
-        int arr[] = {4, 2, 7, 1, 3};
-        int sum = 10;
+       // int arr[] = {4, 2, 7, 1, 3};
+       int arr[] = {10, 1, 2, 7, 6, 1, 5};
+        int sum = 8;
        System.out.println(targetSumSubset(arr, sum));
     }
 }
