@@ -28,14 +28,14 @@ public class DPCatalan{
             }
         return dp[n] = ans;
     }
-    public static int findCatTab(int n, int dp[]){
+    public static int findCatTab(int n, int dp[]){ //n^2
         dp[0] = 1;
         dp[1] = 1;
         
        for(int i=2; i<=n; i++){
         int ans = 0;
           for(int j=0; j<i; j++){
-           ans += dp[j]*dp[i-j-1];
+           ans += dp[j]*dp[i-j-1]; // Ci = Cj * C(i-j-1) where j varies from 0 to i-1
           }
           dp[i] = ans;
         }
