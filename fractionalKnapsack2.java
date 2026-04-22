@@ -7,7 +7,7 @@ public class fractionalKnapsack2 {
             this.wt = wt;
         }
         double getRatio(int val , int wt){
-            return (double) val / wt;
+            return (double) (val / wt);
         }
      }
     public static void sort(Item item[]){
@@ -21,19 +21,20 @@ public class fractionalKnapsack2 {
             }
         }
     }
-    public static double getMax(int item[], int cap){
+    public static double getMax(Item item[], int cap){
           sort(item);
           int i=0;
-          double ans = 0;
-          while(cap > 0){
+         int ans = 0;
+          while(cap > 0 && i < item.length){
           if(item[i].wt <= cap){
             cap = cap - item[i].wt;
             ans += item[i].val;
             i++;
           }else{
             // 100 > 60
-            ans += getRatio(item[i])*(cap);
+            ans += item[i].getRatio(item[i].val, item[i].wt)*(cap);
             cap = 0;
+            break;
           }
           }
           return ans;
