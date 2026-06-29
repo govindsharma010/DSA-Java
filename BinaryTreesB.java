@@ -86,6 +86,20 @@ public class BinaryTreesB {
        
     }
       }
+
+      // Convert a binary tree to a sum tree
+      public static int toSumTree(Node root){
+        if(root == null){
+            return 0;
+        }
+
+        int oldValue = root.data;
+        int leftSum = toSumTree(root.left);
+        int rightSum = toSumTree(root.right);
+
+        root.data = leftSum + rightSum;
+        return root.data + oldValue;
+      }
     }
    
     
@@ -103,6 +117,9 @@ public class BinaryTreesB {
         //System.out.println(root.data);
         //tree.preorder(root);
         //tree.postorder(root);
+        tree.levelOrder(root);
+        System.out.println("\nAfter converting to sum tree:");
+        tree.toSumTree(root);
         tree.levelOrder(root);
 
     }

@@ -232,6 +232,8 @@ public class CalcHeight {
         // last common ancestor
         int i=0;
         for(; i<path1.size() && i<path2.size(); i++){
+         
+         
             if(path1.get(i) != path2.get(i)){
                 break;
             }

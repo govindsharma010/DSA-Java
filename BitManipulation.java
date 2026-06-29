@@ -76,7 +76,19 @@ public class BitManipulation {
         }
         return count ;
     } 
- 
+ public static int fastExpo(int a, int n){
+    
+     int ans = 1;
+     while(n > 0){
+        if((n & 1) != 0){
+            ans = ans * a;
+
+        }
+        a = a*a; // square the number each time
+        n = n>>1; // shift visited bit;
+     }
+     return ans;
+ }
 
     // Fast Exponentiation
     public static void main(String[] args) {
@@ -89,8 +101,9 @@ public class BitManipulation {
     //    System.out.println(clearIthBit(10,1));
     //    System.out.println(updateIthBit(10, 2, 0));
     //    System.out.println(clearLastIthBit(15, 2));
-       System.out.println(clearBitsinRange(10, 2, 7));
-       System.out.println(checkPowerOfTwo(16));
-       System.out.println(countSetBits(16));
+    //    System.out.println(clearBitsinRange(10, 2, 7));
+    //    System.out.println(checkPowerOfTwo(16));
+    //    System.out.println(countSetBits(16));
+    System.out.println(fastExpo(5, 3));
     }
 }
